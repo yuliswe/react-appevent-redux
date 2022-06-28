@@ -1,0 +1,42 @@
+name: Publish package to GitHub Packages
+on:
+  push:
+    branches: ["dev"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: pipx install poetry
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.9"
+          cache: "poetry"
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-interaction
+
+      - name: Build source
+        run: |
+          ./initenv.bash
+          source ./devenv.bash
+          npm ci
+          npm run build
+
+      - name: Auto release
+        uses: mikeal/merge-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+          DEPLOY_DIR: ./
+          SRC_PACKAGE_DIR: ./

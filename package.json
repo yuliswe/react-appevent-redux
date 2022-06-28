@@ -5,22 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc"
+    "build": "tsc"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ylilarry/react-appevent-redux.git"
-  },
-  "keywords": [
-    "React",
-    "Redux"
-  ],
+  "repository": {},
+  "keywords": [],
   "author": "Yu Li",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ylilarry/react-appevent-redux/issues"
-  },
-  "homepage": "https://github.com/ylilarry/react-appevent-redux#readme",
+  "bugs": {},
+  "homepage": "",
   "devDependencies": {
     "eslint": "^8.18.0",
     "prettier": "^2.7.1",

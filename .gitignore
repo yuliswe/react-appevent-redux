@@ -3,3 +3,4 @@
 .venv
 .nodevenv
 node_modules
+dist

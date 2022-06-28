@@ -1,6 +1,6 @@
 VIRTUAL_ENV_DISABLE_PROMPT=1
 NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
-source .venv/bin/activate
+source $(poetry env info -p)/bin/activate
 source .nodevenv/bin/activate
 
 NPM_BIN="$(npm bin)"

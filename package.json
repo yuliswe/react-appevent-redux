@@ -2,11 +2,14 @@
   "name": "react-appevent-redux",
   "version": "1.0.0",
   "description": "React-Redux but event driven.",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
   },
+  "files": [
+    "dist/**"
+  ],
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ylilarry/react-appevent-redux.git"

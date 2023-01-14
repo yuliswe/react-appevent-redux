@@ -16,6 +16,9 @@ source ./devenv.bash
 
 # How to Use
 
+Copy the content of the `./templates` directory to your `./src` directory and overwrite existing files.
+Or see below to configure manually.
+
 ## Store configuration
 
 Create a `store-config.ts` file in the project directory:
@@ -140,7 +143,7 @@ const root = createRoot(document.getElementById('root')!);
 root.render(
   <Provider store={reduxStore}>
       <App />
-  </Provider>,
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
@@ -159,7 +162,7 @@ Run `npm start`:
 
 ## AppEvent Example
 
-Create a `events` directory and `events/OnClickEvent.ts`L
+Create a `events` directory and `events/OnClickEvent.ts`:
 
 ```
 import { HomeAppState } from "../states/HomeAppState";

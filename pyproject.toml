@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "react-appevent-redux"
+name = "my-app"
 version = "0.1.0"
 description = ""
 authors = ["Yu Li <ylilarry@gmail.com>"]

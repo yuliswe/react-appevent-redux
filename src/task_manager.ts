@@ -1,3 +1,4 @@
+import { AppEvent } from "./event";
 import type { AppStore } from "./store";
 import type { AllTasksIntercept, Task, TaskInterceptNativeEvent } from "./task";
 import { Event } from "event-target-shim";
@@ -88,6 +89,9 @@ export class TaskManager<T> {
       await new Promise((r) => setTimeout(r, 0));
       for await (const event of task.run(action.newState)) {
         this.store.dispatch(event);
+      }
+      if (task instanceof AppEvent) {
+        this.store.dispatchAfterTask(task);
       }
     } catch (error) {
       console.error("Exception during task", task.constructor.name);

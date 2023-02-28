@@ -11,10 +11,17 @@ export abstract class AppEvent<T> extends AppTask<T> {
     super();
     this.type = this.constructor.name;
   }
+
   abstract reducer(state: T): T;
+
   *task(newState: T, oldState: T): Iterable<AppTask<T>> {
     yield this;
   }
+
+  reduceAfter(state: T) {
+    return state;
+  }
+
   jsEvent(): Event {
     return new Event(this.constructor.name);
   }

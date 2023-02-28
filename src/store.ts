@@ -105,6 +105,18 @@ export class AppStore<T> {
     AppStore.scheduler.runAfterEvent(event);
   }
 
+  dispatchAfterTask(event: AppEvent<T>) {
+    const dispatch = this.reduxStore.dispatch as any;
+    const oldState = this.getState();
+    const newState = event.reduceAfter(oldState);
+    dispatch({
+      type: `APPSTORE_SET_STATE ${event.type} (reduceAfter)`,
+      "appEvent.type": `${event.type} (reduceAfter)`,
+      appEvent: event,
+      state: newState,
+    });
+  }
+
   addSchedule(schedule: AppSchedule<T>) {
     console.debug("Add schedule", schedule);
     AppStore.scheduler.add(schedule);

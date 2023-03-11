@@ -146,14 +146,14 @@ export class AppScheduler<T> {
 
   remove(id: string) {
     const schedule = this.schedules.get(id);
-    console.debug(`Remove AppSchedule: ${schedule} (${schedule?.id})`);
+    // console.debug(`Remove AppSchedule: ${schedule} (${schedule?.id})`);
     this.schedules.delete(id);
   }
 
   runBeforeEvent(action: AppEvent<T>) {
     for (const schedule of this.schedules.values()) {
       if (schedule._shouldRun(DispatcherState.beforeEvent, action)) {
-        console.debug(`AppSchedule: ${schedule}`);
+        // console.debug(`AppSchedule: ${schedule}`);
         schedule.onTriggered(action);
       }
     }
@@ -162,11 +162,11 @@ export class AppScheduler<T> {
   runAfterEvent(action: AppEvent<T>) {
     for (const schedule of this.schedules.values()) {
       if (schedule._shouldRun(DispatcherState.afterEvent, action)) {
-        console.debug(`AppSchedule: ${schedule}`);
+        // console.debug(`AppSchedule: ${schedule}`);
         schedule.onTriggered(action);
       }
       if (schedule._shouldRemove(action)) {
-        console.debug(`Remove AppSchedule: ${schedule}`);
+        // console.debug(`Remove AppSchedule: ${schedule}`);
         this.schedules.delete(schedule.id);
       }
     }

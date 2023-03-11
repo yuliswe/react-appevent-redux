@@ -77,7 +77,7 @@ export class AppStore<T> {
     // let newEvent = this.runMiddlewares(oldState, event);
     const newState = event.reducer(oldState);
     // feature: sync a part of the state with url
-    console.info("AppEvent:", event.constructor, event);
+    // console.info("AppEvent:", event.constructor, event);
     this.eventTarget.dispatchEvent(
       new StateChangedNativeEvent<T>(null, newState, event.__name ?? "?")
     );
@@ -118,7 +118,7 @@ export class AppStore<T> {
   }
 
   addSchedule(schedule: AppSchedule<T>) {
-    console.debug("Add schedule", schedule);
+    // console.debug("Add schedule", schedule);
     AppStore.scheduler.add(schedule);
   }
 

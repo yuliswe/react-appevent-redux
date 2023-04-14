@@ -1,9 +1,12 @@
+export WS_DIR="$(dirname $(./wsdir.bash)/)"
+unset npm_config_prefix NPM_CONFIG_PREFIX
+
 VIRTUAL_ENV_DISABLE_PROMPT=1
 NODE_VIRTUAL_ENV_DISABLE_PROMPT=1
-source $(poetry env info -p)/bin/activate
-source .nodevenv/bin/activate
+source "$WS_DIR/.nodevenv/bin/activate"
+source "$WS_DIR/.venv/bin/activate"
 
-NPM_BIN="$(npm bin)"
+NPM_BIN="$(npx -y npm@8 bin)"
 
 if [ -z "$PROJ_VIRTUAL_ENV_DISABLE_PROMPT" ] ; then
     _OLD_NODE_VIRTUAL_PS1="$PS1"

@@ -4,7 +4,7 @@
   "description": "My App Template",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo TODO - modify this script to test your library",
     "build": "echo TODO - modify this script to build your library"
   },
   "repository": {},

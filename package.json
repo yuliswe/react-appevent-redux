@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "React-Redux but event driven.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "build": "tsc"
   },
   "files": [
@@ -13,7 +13,7 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ylilarry/react-appevent-redux.git"
+    "url": "git+https://github.com/yuliswe/react-appevent-redux.git"
   },
   "keywords": [
     "React",
@@ -22,9 +22,9 @@
   "author": "Yu Li",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ylilarry/react-appevent-redux/issues"
+    "url": "https://github.com/yuliswe/react-appevent-redux/issues"
   },
-  "homepage": "https://github.com/ylilarry/react-appevent-redux#readme",
+  "homepage": "https://github.com/yuliswe/react-appevent-redux#readme",
   "devDependencies": {
     "@types/uuid": "^8.3.4",
     "eslint": "^8.18.0",

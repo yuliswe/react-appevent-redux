@@ -1,7 +1,7 @@
 name: Publish package to GitHub Packages
 on:
   push:
-    branches: ["dev"]
+    branches: ["release"]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,28 +10,22 @@ jobs:
       contents: write
       packages: write
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Install poetry
-        run: pipx install poetry
+      - run: pipx install poetry
 
-      - name: Setup Python
-        uses: actions/setup-python@v3
+      - uses: actions/setup-python@v3
         with:
           python-version: "3.9"
           cache: "poetry"
 
-      - name: Install dependencies
-        run: |
-          poetry install --no-interaction
+      - run: ./initenv.bash
 
-      - name: Build source
-        run: |
-          ./initenv.bash
+      - run: |
           source ./devenv.bash
           npm ci
           npm run build
+          npm run test
 
       - name: Auto release
         uses: mikeal/merge-release@master

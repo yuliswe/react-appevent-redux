@@ -1,6 +1,6 @@
 {
   "name": "react-appevent-redux",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "React-Redux but event driven.",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
